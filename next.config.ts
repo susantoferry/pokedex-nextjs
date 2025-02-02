@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { hostname: "images.pexels.com" },
-      { hostname: "i.pinimg.com" },
+      { hostname: "raw.githubusercontent.com" },
     ],
   },
   devIndicators: {
