@@ -15,6 +15,7 @@ export default {
       gridTemplateColumns: {
         "auto-fit-minmax": "repeat(auto-fit, minmax(300px, 1fr))",
       },
+      
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

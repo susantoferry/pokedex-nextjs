@@ -4,33 +4,10 @@ import React, { useEffect, useState } from "react";
 import { capitaliseFirstLetter } from "@/utils/function";
 import { PokemonDetailModel, PokemonSpecies } from "@/models/pokemon";
 
-const PokemonNameDetailPage = ({ pokemonId }: { pokemonId: number | null }) => {
+const PokemonNameDetailPage = ({ pokemonId, pokemon }: { pokemonId: number | null, pokemon: PokemonDetailModel | null }) => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [pokemonDetail, setPokemonDetail] = useState<PokemonDetailModel | null>(
-    null
-  );
+  
   const [species, setSpecies] = useState<PokemonSpecies[]>([]);
-
-  useEffect(() => {
-    const fetchPokemonDetail = async () => {
-      try {
-        const response = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`
-        );
-        const data = await response.json();
-
-        setPokemonDetail(data);
-      } catch (error) {
-        console.error("Error fetching pokemon detail:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (pokemonId) {
-      fetchPokemonDetail();
-    }
-  }, [pokemonId]);
 
   useEffect(() => {
     const fetchPokemonSpecies = async () => {
@@ -63,7 +40,7 @@ const PokemonNameDetailPage = ({ pokemonId }: { pokemonId: number | null }) => {
         {`#${pokemonId}`}
       </div>
       <div className="font-bold text-white text-2xl">
-        {pokemonDetail && `${capitaliseFirstLetter(pokemonDetail.name)}`}
+        {pokemon && `${capitaliseFirstLetter(pokemon.name)}`}
       </div>
       <div className="mb-3">
         {species && (

@@ -1,34 +1,9 @@
 import SkeletonPage from '@/components/skeleton/page'
 import { PokemonDetailModel } from '@/models/pokemon'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 
-const PokemonBMIDetailPage = ({ pokemonId }: {pokemonId: number | null}) => {
-  const [loading, setLoading] = useState<boolean>(true)
-  const [pokemon, setPokemon] = useState<PokemonDetailModel>();
-
-  useEffect(() => {
-    const fetchPokemonBMI = async () => {
-      try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`)
-        const data = await response.json();
-        console.log(data)
-        setPokemon(data);
-      } catch (error) {
-        console.error("Error fetch  pokemon text:", error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    if (pokemonId) {
-      fetchPokemonBMI();
-    }
-  }, [pokemonId])
-
-  if (loading) {
-    return <div>Loading...</div>
-  }
+const PokemonBMIDetailPage = ({ pokemon }: {pokemon: PokemonDetailModel | null}) => {
 
   return (
     <div className='flex flex-col justify-center text-center mx-auto w-full'>
