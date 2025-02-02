@@ -81,7 +81,7 @@ const PokemonDetailPage = ({}) => {
               </div>
 
               {/* Generate Pokemon Status */}
-              <PokemonStatusDetailPage />
+              <PokemonStatusDetailPage pokemon={pokemonDetail}/>
 
               {/* Generate Pokemon Evolution */}
               <PokemonEvolutionDetailPage />

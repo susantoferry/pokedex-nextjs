@@ -43,7 +43,7 @@ interface StatName {
   name: string;
 }
 
-interface Stats {
+export interface Stats {
   base_stat: number;
   stat: StatName;
 }
