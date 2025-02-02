@@ -40,7 +40,7 @@ const PokemonDetailPage = ({}) => {
 
               <div className="relative grid w-full mb-4 px-3">
                 {/* Generate Pokemon BMI */}
-                <PokemonBMIDetailPage />
+                <PokemonBMIDetailPage pokemonId={activeIndex}/>
 
                 <div className="grid relative">
                   {/* Generate Pokemon Abilities */}

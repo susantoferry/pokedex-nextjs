@@ -1,7 +1,5 @@
 "use client";
 
-import { useActiveIndex } from "@/contexts/active-index";
-import Image from "next/image";
 import React, { useState } from "react";
 import SearchPage from "../search/page";
 

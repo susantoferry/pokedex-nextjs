@@ -39,7 +39,7 @@ const PokemonNameDetailPage = ({ pokemonId }: { pokemonId: number | null }) => {
           `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`
         );
         const data = await response.json();
-        console.log(data);
+        
         setSpecies(data);
       } catch (error) {
         console.error("Error fetching pokemon species:", error);
