@@ -1,6 +1,6 @@
 import HexagonPage from "@/components/hexagon/page";
 import SkeletonPage from "@/components/skeleton/page";
-import { PokemonDetailModel, Stats } from "@/models/pokemon";
+import { PokemonDetailModel, Stats, Status } from "@/models/pokemon";
 import { bgColorStatTitle, fetchStats, StatType } from "@/utils/function";
 import Image from "next/image";
 import React from "react";
@@ -17,6 +17,11 @@ const PokemonStatusDetailPage = ({
     0
   );
 
+  const transformedStats: Status[] = pokemon?.stats.map(({ base_stat, stat }) => ({
+    base_stat,
+    type_stat: stat.name,
+  })) || [];
+  
   const generateStat = (stats: Stats[] | undefined) => {
     return (
       <div className="flex justify-center items-center w-full text-white gap-[10px] flex-col py-[5px] ">
@@ -99,7 +104,16 @@ const PokemonStatusDetailPage = ({
           </div>
         </div>
 
-        <HexagonPage status={pokemon?.stats}/>
+        {/* <HexagonPage status={pokemon?.stats}/> */}
+        <HexagonPage status={transformedStats}/>
+        {/* <HexagonPage status={{ stats: [
+          { base_stat: 100, stat: { name: "hp" } },
+          { base_stat: 80, stat: { name: "attack" } },
+          { base_stat: 80, stat: { name: "defense" } },
+          { base_stat: 20, stat: { name: "special-attack" } },
+          { base_stat: 80, stat: { name: "special-defense" } },
+          { base_stat: 80, stat: { name: "speed" } },
+        ] }} /> */}
       </div>
     </div>
   );

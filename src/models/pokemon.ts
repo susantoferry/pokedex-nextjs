@@ -59,3 +59,8 @@ export interface PokemonDetailModel {
   stats: Stats[];
   text: string;
 }
+
+export interface Status {
+  base_stat: number;
+  type_stat: string;
+}

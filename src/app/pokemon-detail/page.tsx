@@ -54,7 +54,7 @@ const PokemonDetailPage = ({}) => {
         `}
         >
           {/* Generate Pokemon Image */}
-          <PokemonImageDetailPage />
+          <PokemonImageDetailPage pokemonId={activeIndex}/>
 
           <div className="w-full relative overflow-[inherit] z-[-1]">
             <div

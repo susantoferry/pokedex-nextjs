@@ -1,8 +1,10 @@
 import React from 'react'
 
-const PokemonImageDetailPage = () => {
+const PokemonImageDetailPage = ({ pokemonId }: {pokemonId: number | null}) => {
   return (
-    <div>PokemonImageDetailPage</div>
+    <div className='h-[230px] w-full relative max-h-screen overflow-auto mb-[15px]'>
+      
+    </div>
   )
 }
 
