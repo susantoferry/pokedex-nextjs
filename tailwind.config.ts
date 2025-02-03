@@ -30,6 +30,7 @@ export default {
         "box-detail": `0 0 5px 3px rgba(109, 255, 255, 0.2), 
                           0 0 10px 3px rgba(109, 255, 255, 0.2), 
                           0 0 5px 3px rgba(109, 255, 255, 0.1)`,
+        "box-level": `rgb(0, 183, 255, 0.74) 0px 2px 10px`
       },
       colors: {
         sky: "#C3EBFA",
