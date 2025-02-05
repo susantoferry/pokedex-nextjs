@@ -7,11 +7,17 @@ const PokemonImageDetailPage = ({
   pokemonId: number | null;
 }) => {
   return (
-    <div className="h-[230px] w-full relative max-h-screen overflow-auto mb-[15px] z-20">
-      {/* <Image src={`#`} alt="pokemon-info-bg" height={230} width={350} /> */}
+    <div className="h-[230px] w-full relative max-h-screen flex justify-center items-center left-[25px] z-20">
+      <Image
+        src="/images/pokemon-info-bg.jpeg"
+        alt="pokemon-info-bg"
+        height={230}
+        width={350}
+        className="h-[230px]"
+      />
 
       {/* sparkles */}
-      <div className="sparkles"/>
+      <div className="sparkles" />
 
       {/* bubbles */}
       <div>bubbles</div>
@@ -21,7 +27,7 @@ const PokemonImageDetailPage = ({
         alt=""
         width={100}
         height={100}
-        className="absolute right-0 left-[9px] mx-auto object-contain top-[55px] image-rendering-pixelated"
+        className="absolute right-0 left-[-45px] mx-auto object-contain top-[60px] image-rendering-pixelated"
       />
     </div>
   );
