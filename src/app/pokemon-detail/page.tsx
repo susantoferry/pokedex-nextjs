@@ -38,7 +38,6 @@ const PokemonDetailPage = ({}) => {
   }, [activeIndex]);
 
 
-
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -84,7 +83,7 @@ const PokemonDetailPage = ({}) => {
               <PokemonStatusDetailPage pokemon={pokemonDetail}/>
 
               {/* Generate Pokemon Evolution */}
-              <PokemonEvolutionDetailPage />
+              <PokemonEvolutionDetailPage pokemonId={activeIndex}/>
             </div>
           </div>
         </div>
