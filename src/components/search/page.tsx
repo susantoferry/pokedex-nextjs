@@ -1,7 +1,13 @@
+import { usePokemon } from "@/contexts/pokemon";
 import React from "react";
 
 const SearchPage = () => {
-  const handleSearch = () => {};
+  
+  const { filterPokemons } = usePokemon();
+
+  const handleSearch = (keyword: string) => {
+    filterPokemons(keyword)
+  }
 
   return (
     // <div
@@ -15,6 +21,7 @@ const SearchPage = () => {
       <input
         type="text"
         placeholder="Search your pokemon"
+        onChange={(e) => handleSearch(e.target.value)}
         className="bg-transparent border-none outline-none text-base font-semibold tracking-tight w-full text-white z-10"
       />
       <div className="flex items-center rounded-xl z-10">

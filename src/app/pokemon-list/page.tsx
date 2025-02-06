@@ -5,21 +5,23 @@ import React, { useEffect, useState } from "react";
 import PokemonPage from "../pokemon/page";
 import { getPokemonIdFromUrl } from "@/utils/function";
 import PokemonDetailPage from "../pokemon-detail/page";
+import { usePokemon } from "@/contexts/pokemon";
 
 const PokemonListPage = () => {
-  const [pokemons, setPokemons] = useState<PokemonModel[]>([]);
+  // const [pokemons, setPokemons] = useState<PokemonModel[]>([]);
+  const {pokemons, setPokemons } = usePokemon();
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchPokemons = async () => {
       try {
-        // Step 1: Fetch the list of Pokémon
+        // Fetch the list of Pokémon
         const response = await fetch(
           "https://pokeapi.co/api/v2/pokemon?limit=50"
         );
         const data = await response.json();
 
-        // Step 2: Fetch Pokémon types for each Pokémon
+        // Fetch Pokémon types for each Pokémon
         const pokemonData: PokemonModel[] = data.results.map(
           (pokemon: { name: string; url: string }) => ({
             ...pokemon,
@@ -27,12 +29,7 @@ const PokemonListPage = () => {
           })
         );
 
-        // const pokemonData = data.results.map((pokemon: any) => ({
-        //   ...pokemon,
-        //   types: [],
-        // }));
-
-        // Step 4: Now, fetch types for all Pokémon (this is an additional step)
+        // Fetch types for all Pokémon
         await fetchPokemonTypes(pokemonData);
 
         // Update the state with the fetched Pokémon and their types
@@ -44,7 +41,6 @@ const PokemonListPage = () => {
       }
     };
 
-    // Start fetching data
     fetchPokemons();
   }, []);
 
