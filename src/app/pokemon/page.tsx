@@ -19,8 +19,8 @@ const PokemonPage = ({ pokemon }: { pokemon: PokemonModel }) => {
       transition-all duration-100 ease-in-out filter brightness-[0.85] 
       border border-transparent rounded-3xl h-[190px] bg-center bg-no-repeat
       bg-pokemon-frame bg-[length:100%_100%] backdrop-blur-[10px] backdrop-saturate-[150%]
-      shadow-[0_2px_10px_rgb(0,_183,_255,_0.74)]
-      ${pokemonId === activeIndex ? "border-[rgb(118,_192,_221)] shadow-[0_2px_16px_2px_rgb(0,_183,_255,_0.8)] scale-[0.98]" : "" } 
+      
+      ${pokemonId === activeIndex ? "border-[rgb(118,192,221)] shadow-[0px_6px_16px_rgba(0,183,255,0.8)] scale-[0.98]" : "border-transparent shadow-[0_2px_10px_rgb(0,_183,_255,_0.74)]" } 
       hover:border hover:border-[rgb(118,192,221)] hover:shadow-[0px_6px_16px_rgba(0,183,255,0.8)] hover:brightness-100`}
       onClick={() => handlePokemonClick(pokemonId)}
     >

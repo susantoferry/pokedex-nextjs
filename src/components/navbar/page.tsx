@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import SearchPage from "../search/page";
+import SearchPage from "../navbar/search/page";
 import Image from "next/image";
+import DropDownPage from "./dropdown/page";
 
 const NavbarPage = () => {
   const [isScrolled] = useState<boolean>(false);
@@ -34,7 +35,8 @@ const NavbarPage = () => {
   const NavbarRight = () => {
     return (
       <div className="flex gap-5 flex-row-reverse items-center transition-all duration-300 ease-in-out">
-        <div className="hidden gap-5 flex-row-reverse items-center lg:flex">
+        <div className="hidden gap-5 items-center lg:flex">
+          <DropDownPage />
           <SearchPage />
         </div>
         <div className="hidden opacity-0 invisible md:block md:opacity-100 md:visible md:w-[50px] md:h-[50px] md:text-white md:cursor-pointer" />

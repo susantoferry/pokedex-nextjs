@@ -12,6 +12,9 @@ export default {
       //   background: "var(--background)",
       //   foreground: "var(--foreground)",
       // },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+      },
       gridTemplateColumns: {
         "auto-fit-minmax": "repeat(auto-fit, minmax(300px, 1fr))",
       },
@@ -21,7 +24,7 @@ export default {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "pokemon-frame": "url('/images/file.png')",
-        "custom-gradient": "inear-gradient(90deg, #02b7ff, #fcfff3, #0281ff)",
+        "custom-gradient": "linear-gradient(90deg, #02b7ff, #fcfff3, #0281ff)",
       },
       boxShadow: {
         "gradient-search-box": `0 0 5px 1px rgba(2, 183, 255, 0.6), 
