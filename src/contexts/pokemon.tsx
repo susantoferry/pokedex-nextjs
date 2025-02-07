@@ -7,6 +7,7 @@ interface PokemonContextProps {
   pokemons: PokemonModel[];
   setPokemons: (pokemons: PokemonModel[]) => void;
   filterPokemons: (searchTerm: string) => void;
+  filterPokemonType: (pokemonType: string) => void;
 }
 
 const PokemonContext = createContext<PokemonContextProps | undefined>(undefined);
@@ -40,8 +41,22 @@ export const PokemonProvider: React.FC<{ children: ReactNode }> = ({ children })
     setPokemons(filtered);
   };
 
+  const filterPokemonType = (selectedType: string) => {
+    let filtered: PokemonModel[] = [];
+
+    if (selectedType !== "All Types" && selectedType !== "") {
+      filtered = originalPokemons.filter((pokemon) => 
+        pokemon.types.includes(selectedType)
+      )
+    } else {
+      filtered = originalPokemons;
+    }
+
+    setPokemons(filtered)
+  }
+
   return (
-    <PokemonContext.Provider value = {{ pokemons, setPokemons, filterPokemons }}>
+    <PokemonContext.Provider value = {{ pokemons, setPokemons, filterPokemons, filterPokemonType }}>
       { children }
     </PokemonContext.Provider>
   )

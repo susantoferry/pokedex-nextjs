@@ -1,7 +1,8 @@
 import HexagonPage from "@/components/hexagon/page";
 import SkeletonPage from "@/components/skeleton/page";
+import { fetchStats } from "@/constants/stat";
+import { bgColorStatTitle, StatType } from "@/constants/stat-title-color";
 import { PokemonDetailModel, Stats, Status } from "@/models/pokemon";
-import { bgColorStatTitle, fetchStats, StatType } from "@/utils/function";
 import Image from "next/image";
 import React from "react";
 

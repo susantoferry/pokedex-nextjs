@@ -1,7 +1,8 @@
 import SkeletonPage from "@/components/skeleton/page";
+import { colorTypes } from "@/constants/type-color";
 import { useActiveIndex } from "@/contexts/active-index";
 import { PokemonModel } from "@/models/pokemon";
-import { capitaliseFirstLetter, colorTypes, getPokemonIdFromUrl } from "@/utils/function";
+import { capitaliseFirstLetter, getPokemonIdFromUrl } from "@/utils/function";
 import Image from "next/image";
 import React from "react";
 

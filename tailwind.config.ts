@@ -18,7 +18,7 @@ export default {
       gridTemplateColumns: {
         "auto-fit-minmax": "repeat(auto-fit, minmax(300px, 1fr))",
       },
-      
+
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -33,7 +33,10 @@ export default {
         "box-detail": `0 0 5px 3px rgba(109, 255, 255, 0.2), 
                           0 0 10px 3px rgba(109, 255, 255, 0.2), 
                           0 0 5px 3px rgba(109, 255, 255, 0.1)`,
-        "box-level": `rgb(0, 183, 255, 0.74) 0px 2px 10px`
+        "box-level": `rgb(0, 183, 255, 0.74) 0px 2px 10px`,
+        "box-icon-type": `0 6px 10px rgba(0, 0, 0, 0.4),         
+                          inset 0 -8px 10px rgba(0, 0, 0, 0.3),  
+                          inset 0 6px 10px rgba(255, 255, 255, 0.6)`,
       },
       colors: {
         sky: "#C3EBFA",
@@ -53,12 +56,12 @@ export default {
           "100%": { backgroundPosition: "0% 0%" },
         },
         display: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
         slideIn: {
           "0%": { right: "-400px" },
-          "100%": { right: "calc(9vw + 15px)" }
+          "100%": { right: "calc(9vw + 15px)" },
         },
         skeleton: {
           "0%": { transform: "translateX(-100%)" },
@@ -68,7 +71,7 @@ export default {
       animation: {
         shine: "shine 3s linear infinite",
         skeleton: "skeleton 1.2s infinite",
-        slideIn: 'display 0.65s ease-in-out, slideIn 0.65s ease-in-out',
+        slideIn: "display 0.65s ease-in-out, slideIn 0.65s ease-in-out",
       },
     },
   },

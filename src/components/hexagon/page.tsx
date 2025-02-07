@@ -8,7 +8,8 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
-import { adjustingRadarCoordinate, fetchStats } from "@/utils/function";
+import { adjustingRadarCoordinate } from "@/utils/function";
+import { fetchStats } from "@/constants/stat";
 
 interface StatData {
   subject: {icon: string; title: string};
