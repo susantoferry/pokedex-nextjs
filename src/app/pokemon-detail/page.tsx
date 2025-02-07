@@ -43,11 +43,11 @@ const PokemonDetailPage = ({}) => {
   }
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-10 left-[17px]">
       {activeIndex && (
         <div
           className={`fixed flex flex-col items-center bg-[#88c4ff0d]
-          rounded-3xl w-full max-w-[280px] top-44 right-[calc(10vw+15px)] text-center
+          rounded-3xl w-full max-w-[280px] top-44 right-[calc(9vw+15px)] text-center
           bottom-0 mb-5 overflow-scroll shadow-box-detail animate-fill-forwards border border-[#6dffff99]
           ${activeIndex ? "animate-slideIn" : ""}
         `}
@@ -57,7 +57,7 @@ const PokemonDetailPage = ({}) => {
 
           <div className="w-full relative overflow-[inherit] z-[-1]">
             <div
-              className="flex items-center flex-col pt-3 h-full overflow-y-scroll"
+              className="flex items-center flex-col pt-3 overflow-y-scroll"
               style={{ msOverflowStyle: "none", scrollbarWidth: "none" }}
             >
               {/* Generate Pokemon Name Type */}

@@ -7,7 +7,7 @@ const PokemonImageDetailPage = ({
   pokemonId: number | null;
 }) => {
   return (
-    <div className="h-[230px] w-full relative max-h-screen flex justify-center items-center left-[25px] z-20">
+    <div className="h-[230px] w-full relative max-h-screen z-20">
       <Image
         src="/images/pokemon-info-bg.jpeg"
         alt="pokemon-info-bg"
@@ -25,9 +25,9 @@ const PokemonImageDetailPage = ({
       <Image
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonId}.gif`}
         alt=""
-        width={100}
-        height={100}
-        className="absolute right-0 left-[-45px] mx-auto object-contain top-[60px] image-rendering-pixelated"
+        width={80}
+        height={80}
+        className="absolute w-[75px] h-[70px] right-0 left-[10px] mx-auto top-[70px] image-rendering-pixelated"
       />
     </div>
   );

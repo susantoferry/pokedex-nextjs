@@ -12,7 +12,7 @@ const NavbarPage = () => {
   const NavbarLeft = () => {
     return (
       <div>
-        <Image
+        {/* <Image
           src="/images/pokeball-logo.webp"
           alt="pokeball"
           className="h-[35px] w-[40px] border-none rounded-full absolute left-[90px] z-10 top-[-15px]"
@@ -26,7 +26,7 @@ const NavbarPage = () => {
           width={215}
           height={88}
           priority
-        />
+        /> */}
       </div>
     );
   };
@@ -44,7 +44,7 @@ const NavbarPage = () => {
 
   return (
     <div
-      className={`w-full sticky top-0 z-10 mb-10 pt-10 px-[10vw] z-20
+      className={`w-full sticky top-0 mb-10 pt-10 px-[10vw] z-20
         ${isScrolled ? "bg-[#1c1e761c] backdrop-blur-lg shadow-md" : ""}`}
     >
       <div className="relative flex items-center justify-between h-[90px]">

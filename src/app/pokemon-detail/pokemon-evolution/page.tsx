@@ -1,3 +1,4 @@
+import { ActiveIndexProvider, useActiveIndex } from "@/contexts/active-index";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -79,6 +80,7 @@ const PokemonEvolutionDetailPage = ({ pokemonId }: { pokemonId: number }) => {
   const [evolutionChain, setEvolutionChain] = useState<
     { id: number; name: string; level: number }[]
   >([]);
+  const { setActiveIndex } = useActiveIndex();
 
   useEffect(() => {
     const fetchPokemonSpecies = async () => {
@@ -108,15 +110,16 @@ const PokemonEvolutionDetailPage = ({ pokemonId }: { pokemonId: number }) => {
     }
     console.log(evolutionChain);
     return (
-      <div className="flex justify-center items-center flex-col md:flex-row">
+      <div className="flex justify-center items-center flex-col">
         {evolutionChain.map((evolution, index) => (
-          <div key={index}>
+          <div key={index} className="flex flex-col-reverse">
             <div>
               <Image
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolution.id}.png`}
                 alt=""
                 height={75}
                 width={75}
+                onClick={() => setActiveIndex(evolution.id)}
                 className="cursor-pointer mx-[5px] p-1 rounded-full transition-transform duration-500 ease-in-out"
               />
             </div>

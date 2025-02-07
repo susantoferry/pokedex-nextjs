@@ -55,7 +55,7 @@ export default {
         },
         slideIn: {
           "0%": { right: "-400px" },
-          "100%": { right: "calc(10vw + 15px)" }
+          "100%": { right: "calc(9vw + 15px)" }
         },
         skeleton: {
           "0%": { transform: "translateX(-100%)" },

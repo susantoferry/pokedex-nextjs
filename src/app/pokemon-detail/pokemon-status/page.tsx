@@ -26,7 +26,7 @@ const PokemonStatusDetailPage = ({
     return (
       <div className="flex justify-center items-center w-full text-white gap-[10px] flex-col py-[5px] ">
         {stats ? (
-          <div>
+          <div className="flex gap-3 flex-col w-full">
             {stats.map((stat, index) => {
               const { icon, title } = fetchStats(stat.stat.name);
               return (
