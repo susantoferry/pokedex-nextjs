@@ -11,6 +11,7 @@ const DropDown = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState<boolean>(false);
   const { filterPokemonType } = usePokemon();
+  const [pokemonType, setPokemonType] = useState<string>("");
 
   const handleDropdownToggle = () => {
     setOpen(!open);
@@ -18,6 +19,7 @@ const DropDown = () => {
 
   const handleSelectPokemonType = (pokemonType: string) => {
     filterPokemonType(pokemonType)
+    setPokemonType(pokemonType)
     setOpen(false)
   }
 
@@ -42,7 +44,7 @@ const DropDown = () => {
         className="flex items-center justify-between w-full p-[10px] cursor-pointer border-2 border-gray-300 z-10 text-white rounded-full
         shadow-gradient-search-box backdrop-blur-md"
       >
-        <span>{capitaliseFirstLetter("All types")}</span>
+        <span>{capitaliseFirstLetter(pokemonType !== "" ? pokemonType : "All Types")}</span>
         <span>
           {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
         </span>
