@@ -1,3 +1,5 @@
+"use client"
+
 import { useActiveIndex } from "@/contexts/active-index";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
