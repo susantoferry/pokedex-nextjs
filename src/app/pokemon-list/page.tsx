@@ -9,7 +9,7 @@ import { usePokemon } from "@/contexts/pokemon";
 
 const PokemonListPage = () => {
   // const [pokemons, setPokemons] = useState<PokemonModel[]>([]);
-  const {pokemons, setPokemons } = usePokemon();
+  const { pokemons, setPokemons } = usePokemon();
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -82,21 +82,24 @@ const PokemonListPage = () => {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div className="grid w-full grid-cols-[78%_21%] auto-rows-auto px-[10vw] transition-all duration-500 ease-in-out">
-      <PokemonListExtension pokemons={pokemons} />
+    <div className="relative">
+      <div className="grid w-full grid-cols-[78%_21%] auto-rows-auto px-[10vw] transition-all duration-500 ease-in-out">
+        <PokemonListExtension pokemons={pokemons} />
 
-      <PokemonDetailPage />
+        <PokemonDetailPage />
+      </div>
     </div>
   );
 };
 
-const PokemonListExtension = ({pokemons}: {pokemons: PokemonModel[]}) => {
+const PokemonListExtension = ({ pokemons }: { pokemons: PokemonModel[] }) => {
   return (
     <div className="overflow-y-auto flex-1">
       <div
         className="w-full relative flex-col mb-5 flex-none basis-[75%] gap-3 pr-3 z-10
                   lg:grid lg:grid-cols-auto-fit-minmax 
-                  md:flex md:justify-center md:items-center md:p-0">
+                  md:flex md:justify-center md:items-center md:p-0"
+      >
         {pokemons.map((pokemon, index) => (
           <div key={index}>
             <PokemonPage pokemon={pokemon} />
@@ -104,7 +107,7 @@ const PokemonListExtension = ({pokemons}: {pokemons: PokemonModel[]}) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default PokemonListPage;

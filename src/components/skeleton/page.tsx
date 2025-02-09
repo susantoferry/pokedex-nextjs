@@ -5,7 +5,7 @@ interface SkeletonProps {
   iterate: number;
 }
 
-const SkeletonPage = ({ size, iterate }: SkeletonProps) => {
+const Skeleton = ({ size, iterate }: SkeletonProps) => {
   const getWidth = () => {
     let width = "150px";
     let height = "80px";
@@ -52,4 +52,4 @@ const SkeletonPage = ({ size, iterate }: SkeletonProps) => {
   );
 };
 
-export default SkeletonPage;
+export default Skeleton;

@@ -26,32 +26,6 @@ interface EvolutionChain {
   level: number;
 }
 
-// const extractEvolutionChain = (evolutionData: EvolutionData): EvolutionChain[] => {
-//   const evolutionChain: {id: number; name: string; level: number;}[] = []
-
-//   let currentEvolution = evolutionData.chain.evolves_to[0];
-//   console.log(evolutionData)
-//   while (currentEvolution) {
-//     evolutionChain.push ({
-//       id: 1,
-//       name: currentEvolution.species.name,
-//       level: currentEvolution.evolution_details[0]?.min_level
-//       ? currentEvolution.evolution_details[0].min_level
-//       : '-'
-//     })
-
-//     currentEvolution = currentEvolution.evolves_to[0]
-//   }
-
-//   // const evolve1 = pokemonEvolutionData.chain.evolves_to[0];
-//   // const evolve2 = pokemonEvolutionData.chain.evolves_to[0].evolves_to[0];
-
-//   // const evolve1Id = evolve1 ? getPokemonIdFromUrl(evolve1.species.url) : null
-//   // const evolve2Id = evolve2 ? getPokemonIdFromUrl(evolve2.species.url) : null
-
-//   return evolutionChain;
-// }
-
 const extractEvolutionChain = (
   evolutionData: EvolutionData
 ): EvolutionChain[] => {
@@ -83,47 +57,40 @@ const PokemonEvolutionDetailPage = ({ pokemonId }: { pokemonId: number }) => {
   const { setActiveIndex } = useActiveIndex();
 
   useEffect(() => {
-    const fetchPokemonSpecies = async () => {
-      try {
-        const response = await fetch(
-          `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`
-        );
-        const data = await response.json();
-
-        const responseEvolution = await fetch(data.evolution_chain.url);
-        const evolutionData = await responseEvolution.json();
-
-        setEvolutionChain(extractEvolutionChain(evolutionData));
-      } catch (error) {
-        console.error("Error fetching pokemon species:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPokemonSpecies();
+    if (pokemonId) {
+      const fetchPokemonSpecies = async () => {
+        try {
+          const response = await fetch(
+            `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`
+          );
+          const data = await response.json();
+  
+          const responseEvolution = await fetch(data.evolution_chain.url);
+          const evolutionData = await responseEvolution.json();
+  
+          setEvolutionChain(extractEvolutionChain(evolutionData));
+        } catch (error) {
+          console.error("Error fetching pokemon species:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchPokemonSpecies();
+    }
+    
   }, [pokemonId]);
 
   const generatePokemonEvolution = () => {
     if (!evolutionChain || evolutionChain.length === 0) {
       return <div>No evolution data available.</div>;
     }
-    console.log(evolutionChain);
+    
     return (
-      <div className="flex justify-center items-center flex-col">
+      <div className="flex justify-center flex-col items-center sm:flex-row lg:flex-col">
         {evolutionChain.map((evolution, index) => (
-          <div key={index} className="flex flex-col-reverse">
-            <div>
-              <Image
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolution.id}.png`}
-                alt=""
-                height={75}
-                width={75}
-                onClick={() => setActiveIndex(evolution.id)}
-                className="cursor-pointer mx-[5px] p-1 rounded-full transition-transform duration-500 ease-in-out"
-              />
-            </div>
-            { evolution.level &&
+          <div key={index} className="flex flex-col items-center sm:flex-row lg:flex-col">
+            {evolution.level && (
               <div
                 className=" w-[70px] py-1 rounded-full mx-[5px] text-xs font-semibold 
                 bg-transparent text-white backdrop-blur-[10px] backdrop-saturate-[150%]
@@ -131,7 +98,15 @@ const PokemonEvolutionDetailPage = ({ pokemonId }: { pokemonId: number }) => {
               >
                 Lv. {evolution.level}
               </div>
-            }
+            )}
+            <Image
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolution.id}.png`}
+              alt=""
+              height={75}
+              width={75}
+              onClick={() => setActiveIndex(evolution.id)}
+              className="cursor-pointer mx-[5px] p-1 rounded-full transition-transform duration-500 ease-in-out"
+            />
           </div>
         ))}
       </div>
@@ -141,8 +116,6 @@ const PokemonEvolutionDetailPage = ({ pokemonId }: { pokemonId: number }) => {
   if (loading) {
     return <div>Loading data...</div>;
   }
-
-  console.log(evolutionChain);
 
   return (
     <div className="relative w-full flex flex-col items-center my-5 pt-5">

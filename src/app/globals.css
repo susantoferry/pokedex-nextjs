@@ -153,6 +153,14 @@ body::after {
   outline: none;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Smooth rotation animation */
 @keyframes rotate {
   from {
@@ -160,5 +168,16 @@ body::after {
   }
   to {
     transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+  }
+}
+
+@keyframes auraFloat {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30vh);
+    opacity: 0;
   }
 }

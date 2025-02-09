@@ -1,5 +1,5 @@
 "use client";
-import SkeletonPage from "@/components/skeleton/page";
+import Skeleton from "@/components/skeleton/page";
 import React, { useEffect, useState } from "react";
 
 const PokemonInfoDetailPage = ({ pokemonId }: { pokemonId: number | null }) => {
@@ -47,7 +47,7 @@ const PokemonInfoDetailPage = ({ pokemonId }: { pokemonId: number | null }) => {
           </div>
         </div>
       ) : (
-        <SkeletonPage size={"md-box"} iterate={1} />
+        <Skeleton size={"md-box"} iterate={1} />
       )}
     </div>
   );

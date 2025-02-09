@@ -17,7 +17,7 @@ interface StatData {
   fullMark: number;
 }
 
-const HexagonPage = ({ status }: { status: Status[] }) => {
+const Hexagon = ({ status }: { status: Status[] }) => {
 
   const transformedData: StatData[] = status.map((stat: Status) => ({
     subject: fetchStats(stat.type_stat),
@@ -98,4 +98,4 @@ const HexagonPage = ({ status }: { status: Status[] }) => {
   );
 };
 
-export default HexagonPage;
+export default Hexagon;

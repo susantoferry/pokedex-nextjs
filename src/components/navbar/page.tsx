@@ -1,14 +1,30 @@
 "use client";
 
-import React, { useState } from "react";
-import SearchPage from "../navbar/search/page";
+import React, { useEffect, useState } from "react";
+import Search from "../navbar/search/page";
 import Image from "next/image";
-import DropDownPage from "./dropdown/page";
+import DropDown from "./dropdown/page";
 
 const NavbarPage = () => {
-  const [isScrolled] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
   // const [showSearch, setShowSearch] = useState<boolean>(false)
   // const { activeIndex } = useActiveIndex();
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const NavbarLeft = () => {
     return (
@@ -36,8 +52,8 @@ const NavbarPage = () => {
     return (
       <div className="flex gap-5 flex-row-reverse items-center transition-all duration-300 ease-in-out">
         <div className="hidden gap-5 items-center lg:flex">
-          <DropDownPage />
-          <SearchPage />
+          <DropDown />
+          <Search />
         </div>
         <div className="hidden opacity-0 invisible md:block md:opacity-100 md:visible md:w-[50px] md:h-[50px] md:text-white md:cursor-pointer" />
       </div>

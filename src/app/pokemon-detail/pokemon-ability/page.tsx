@@ -1,4 +1,4 @@
-import SkeletonPage from '@/components/skeleton/page'
+import Skeleton from '@/components/skeleton/page'
 import { PokemonDetailModel } from '@/models/pokemon'
 import { capitaliseFirstLetter } from '@/utils/function'
 import React from 'react'
@@ -8,7 +8,7 @@ const PokemonAbilityDetailPage = ({ pokemon }: {pokemon: PokemonDetailModel | nu
     <div className='flex flex-col justify-center text-center mx-auto w-full gap-3'>
       {pokemon ? (
         <div className='font-bold text-white'>Abilities</div>
-      ): <SkeletonPage size={"title"} iterate={1} />}
+      ): <Skeleton size={"title"} iterate={1} />}
 
       {pokemon ? (
         <div className='flex justify-between items-center w-full text-white gap-3 text-center'>
@@ -20,7 +20,7 @@ const PokemonAbilityDetailPage = ({ pokemon }: {pokemon: PokemonDetailModel | nu
             </div>
           ))}
         </div>
-      ) : <SkeletonPage size={"md-box"} iterate={1} />}
+      ) : <Skeleton size={"md-box"} iterate={1} />}
     </div>
   )
 }

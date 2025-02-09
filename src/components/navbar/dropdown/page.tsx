@@ -7,7 +7,7 @@ import { pokemonTypes } from "@/constants/pokemon-type";
 import { colorTypes } from "@/constants/type-color";
 import { usePokemon } from "@/contexts/pokemon";
 
-const DropDownPage = () => {
+const DropDown = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState<boolean>(false);
   const { filterPokemonType } = usePokemon();
@@ -73,7 +73,7 @@ const DropDownPage = () => {
                 >
                   <Image
                     src={`/images/pokemon-icon/${iconType}`}
-                    alt="pokemon-fire-type"
+                    alt={`pokemon-${type.name}-type`}
                     width={22}
                     height={22}
                     className="relative h-[22px] w-[22px] rounded-full p-[5px] shadow-box-icon-type"
@@ -99,4 +99,4 @@ const DropDownPage = () => {
 //   &::-webkit-scrollbar {
 //     display: none;
 //   }
-export default DropDownPage;
+export default DropDown;

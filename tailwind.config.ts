@@ -67,11 +67,36 @@ export default {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(100%)" },
         },
+        aura: {
+          "0%": {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateY(-30vh)",
+            opacity: "0"
+          }
+        },
+        closePopUp: {
+          "0%": { transform: "translateY(-175px)" },
+          "70%": { transform: "translateY(-160px)" },
+          "90%": { transform: "translateY(-180px)" },
+          "100%": { transform: "translateY(550px)" },
+        },
+        showPopUp: {
+          "0%": { transform: "translateY(550px)" },
+          "70%": { transform: "translateY(-180px)" },
+          "90%": { transform: "translateY(-160px)" },
+          "100%": { transform: "translateY(-175px)" },
+        }
       },
       animation: {
         shine: "shine 3s linear infinite",
         skeleton: "skeleton 1.2s infinite",
         slideIn: "display 0.65s ease-in-out, slideIn 0.65s ease-in-out",
+        aura: 'aura 1s ease-in-out forwards',
+        closePopUp: 'closePopUp 1s ease-in-out forwards',
+        showPopUp: 'showPopUp 1s ease-in-out forwards',
       },
     },
   },

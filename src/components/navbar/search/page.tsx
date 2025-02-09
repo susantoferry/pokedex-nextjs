@@ -2,7 +2,7 @@ import { usePokemon } from "@/contexts/pokemon";
 import React from "react";
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchPage = () => {
+const Search = () => {
   
   const { filterPokemons } = usePokemon();
 
@@ -23,4 +23,4 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+export default Search;

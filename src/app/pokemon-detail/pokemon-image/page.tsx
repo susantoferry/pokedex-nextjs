@@ -1,3 +1,4 @@
+import AuraEffect from "@/components/aura-effect/page";
 import Image from "next/image";
 import React from "react";
 
@@ -13,14 +14,13 @@ const PokemonImageDetailPage = ({
         alt="pokemon-info-bg"
         height={230}
         width={350}
-        className="h-[230px]"
+        className="w-full h-[230px] rounded-2xl"
       />
 
-      {/* sparkles */}
-      <div className="sparkles" />
+      <div className="sparkles !absolute rounded-2xl"/>
 
       {/* bubbles */}
-      <div>bubbles</div>
+      <AuraEffect />
 
       <Image
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonId}.gif`}

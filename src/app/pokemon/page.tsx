@@ -1,4 +1,4 @@
-import SkeletonPage from "@/components/skeleton/page";
+import Skeleton from "@/components/skeleton/page";
 import { colorTypes } from "@/constants/type-color";
 import { useActiveIndex } from "@/contexts/active-index";
 import { PokemonModel } from "@/models/pokemon";
@@ -52,7 +52,7 @@ const PokemonImage = ({
           className="transition-all duration-100 relative top-2 [image-rendering: pixelated]"
         />
       ) : (
-        <SkeletonPage size={"md-box"} iterate={1} />
+        <Skeleton size={"md-box"} iterate={1} />
       )}
     </div>
   );
@@ -72,7 +72,7 @@ const PokemonInfo = ({
       {id ? (
         <div className="text-xs font-black text-[#dde3e8]">#{id}</div>
       ) : (
-        <SkeletonPage size={"title"} iterate={1} />
+        <Skeleton size={"title"} iterate={1} />
       )}
 
       {id ? (
@@ -80,7 +80,7 @@ const PokemonInfo = ({
           {capitaliseFirstLetter(pokemon.name)}
         </div>
       ) : (
-        <SkeletonPage size={"title"} iterate={1} />
+        <Skeleton size={"title"} iterate={1} />
       )}
 
       {pokemon ? (
@@ -103,7 +103,7 @@ const PokemonInfo = ({
             })}
         </div>
       ) : (
-        <SkeletonPage size={"title"} iterate={1} />
+        <Skeleton size={"title"} iterate={1} />
       )}
     </div>
   );
