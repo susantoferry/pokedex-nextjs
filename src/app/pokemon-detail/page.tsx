@@ -2,15 +2,16 @@
 
 import { useActiveIndex } from "@/contexts/active-index";
 import React, { useEffect, useState } from "react";
-import PokemonImageDetailPage from "./pokemon-image/page";
-import PokemonNameDetailPage from "./pokemon-name/page";
-import PokemonInfoDetailPage from "./pokemon-info/page";
-import PokemonBMIDetailPage from "./pokemon-bmi/page";
-import PokemonAbilityDetailPage from "./pokemon-ability/page";
-import PokemonStatusDetailPage from "./pokemon-status/page";
-import PokemonEvolutionDetailPage from "./pokemon-evolution/page";
 import { PokemonDetailModel } from "@/models/pokemon";
 import DetailPopUp from "@/components/popup/page";
+import PokemonImageDetailPage from "@/components/pokemon-detail/pokemon-image/page";
+import PokemonNameDetailPage from "@/components/pokemon-detail/pokemon-name/page";
+import PokemonInfoDetailPage from "@/components/pokemon-detail/pokemon-info/page";
+import PokemonBMIDetailPage from "@/components/pokemon-detail/pokemon-bmi/page";
+import PokemonAbilityDetailPage from "@/components/pokemon-detail/pokemon-ability/page";
+import PokemonStatusDetailPage from "@/components/pokemon-detail/pokemon-status/page";
+import PokemonEvolutionDetailPage from "@/components/pokemon-detail/pokemon-evolution/page";
+
 
 const PokemonDetailPage = ({}) => {
   const { activeIndex } = useActiveIndex();
@@ -76,11 +77,11 @@ const PokemonDetailPage = ({}) => {
 
                 <div className="relative grid w-full mb-4 px-3">
                   {/* Generate Pokemon BMI */}
-                  <PokemonBMIDetailPage pokemon={pokemonDetail} />
+                  <PokemonBMIDetailPage pokemon={pokemonDetail!} />
 
                   <div className="grid relative">
                     {/* Generate Pokemon Abilities */}
-                    <PokemonAbilityDetailPage pokemon={pokemonDetail} />
+                    {pokemonDetail ? <PokemonAbilityDetailPage pokemon={pokemonDetail!} /> : "" }
                   </div>
                 </div>
 

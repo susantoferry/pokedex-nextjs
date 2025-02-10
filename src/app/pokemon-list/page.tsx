@@ -2,10 +2,11 @@
 
 import { PokemonModel, PokemonTypeEntry } from "@/models/pokemon";
 import React, { useEffect, useState } from "react";
-import PokemonPage from "../pokemon/page";
+
 import { getPokemonIdFromUrl } from "@/utils/function";
 import PokemonDetailPage from "../pokemon-detail/page";
 import { usePokemon } from "@/contexts/pokemon";
+import PokemonPage from "@/components/pokemon/page";
 
 const PokemonListPage = () => {
   // const [pokemons, setPokemons] = useState<PokemonModel[]>([]);

@@ -31,13 +31,13 @@ interface Type {
   };
 }
 
-interface AbilityName {
-  name: string;
-}
+// interface AbilityName {
+//   name: string;
+// }
 
-interface Ability {
-  ability: AbilityName;
-}
+// interface Ability {
+//   ability: AbilityName;
+// }
 
 interface StatName {
   name: string;
@@ -48,6 +48,12 @@ export interface Stats {
   stat: StatName;
 }
 
+interface PokemonAbility {
+  ability: {
+    name: string;
+  }
+}
+
 export interface PokemonDetailModel {
   id: number;
   name: string;
@@ -55,7 +61,7 @@ export interface PokemonDetailModel {
   types: Type[];
   weight: number;
   height: number;
-  abilities: Ability[];
+  abilities: PokemonAbility[];
   stats: Stats[];
   text: string;
 }

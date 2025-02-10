@@ -15,7 +15,7 @@ const PokemonNameDetailPage = ({
 }) => {
   const [loading, setLoading] = useState<boolean>(true);
 
-  const [species, setSpecies] = useState<PokemonSpecies[]>([]);
+  const [species, setSpecies] = useState<PokemonSpecies | null>(null);
 
   useEffect(() => {
     const fetchPokemonSpecies = async () => {

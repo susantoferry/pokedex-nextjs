@@ -3,7 +3,7 @@ import { PokemonDetailModel } from '@/models/pokemon'
 import React from 'react'
 
 
-const PokemonBMIDetailPage = ({ pokemon }: {pokemon: PokemonDetailModel | null}) => {
+const PokemonBMIDetailPage = ({ pokemon }: {pokemon: PokemonDetailModel}) => {
 
   return (
     <div className='flex flex-col justify-center text-center mx-auto w-full'>

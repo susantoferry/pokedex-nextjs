@@ -1,14 +1,14 @@
 import React from "react";
 import { useActiveIndex } from "@/contexts/active-index";
 import CloseIcon from "@mui/icons-material/Close";
-import PokemonEvolutionDetailPage from "@/app/pokemon-detail/pokemon-evolution/page";
-import PokemonBMIDetailPage from "@/app/pokemon-detail/pokemon-bmi/page";
 import { PokemonDetailModel } from "@/models/pokemon";
-import PokemonAbilityDetailPage from "@/app/pokemon-detail/pokemon-ability/page";
-import PokemonStatusDetailPage from "@/app/pokemon-detail/pokemon-status/page";
-import PokemonInfoDetailPage from "@/app/pokemon-detail/pokemon-info/page";
-import PokemonImageDetailPage from "@/app/pokemon-detail/pokemon-image/page";
-import PokemonNameDetailPage from "@/app/pokemon-detail/pokemon-name/page";
+import PokemonNameDetailPage from "../pokemon-detail/pokemon-name/page";
+import PokemonImageDetailPage from "../pokemon-detail/pokemon-image/page";
+import PokemonInfoDetailPage from "../pokemon-detail/pokemon-info/page";
+import PokemonBMIDetailPage from "../pokemon-detail/pokemon-bmi/page";
+import PokemonAbilityDetailPage from "../pokemon-detail/pokemon-ability/page";
+import PokemonStatusDetailPage from "../pokemon-detail/pokemon-status/page";
+import PokemonEvolutionDetailPage from "../pokemon-detail/pokemon-evolution/page";
 
 const DetailPopUp = ({ pokemon }: { pokemon: PokemonDetailModel | null }) => {
   const { activeIndex, setActiveIndex } = useActiveIndex();
@@ -31,8 +31,8 @@ const DetailPopUp = ({ pokemon }: { pokemon: PokemonDetailModel | null }) => {
             </div>
           </div>
           <div className="relative block">
-            <PokemonBMIDetailPage pokemon={pokemon} />
-            <PokemonAbilityDetailPage pokemon={pokemon} />
+            <PokemonBMIDetailPage pokemon={pokemon!} />
+            <PokemonAbilityDetailPage pokemon={pokemon!} />
             <PokemonStatusDetailPage pokemon={pokemon} />
             <PokemonEvolutionDetailPage pokemonId={activeIndex!} />
           </div>
