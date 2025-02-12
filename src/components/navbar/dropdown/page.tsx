@@ -55,8 +55,7 @@ const DropDown = () => {
         <div
           className="absolute top-full w-full max-h-[200px] m-0 mt-4 p-0 overflow-y-auto
           list-none border border-[#ccc] bg-[#23242433] backdrop-blur-md z-10 rounded-[8px]
-          text-white"
-          style={{ scrollbarWidth: "none" }}
+          text-white scrollbar-hide"
         >
           <div className="flex items-center p-[10px] cursor-pointer backdrop-blur-md
             font-semibold hover:bg-[#45638354]"
@@ -64,6 +63,8 @@ const DropDown = () => {
           >
             All pokémon types
           </div>
+
+          {/* Start pokemon type loop */}
           {pokemonTypes.results
             .sort((a, b) => (a.name > b.name ? 1 : -1))
             .map((type) => {
@@ -90,17 +91,11 @@ const DropDown = () => {
               );
             })}
 
-          {/* End of loop */}
+            {/* End of loop */}
         </div>
       )}
     </div>
   );
 };
 
-//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-//   scrollbar-width: none;
-
-//   &::-webkit-scrollbar {
-//     display: none;
-//   }
 export default DropDown;

@@ -38,53 +38,34 @@ const DetailPopUp = ({ pokemon }: { pokemon: PokemonDetailModel | null }) => {
           </div>
         </div>
       </div>
-
-      // <div>
-      //   <div className="fixed h-full max-w-[80vw] max-h-[550px] ">
-      //     <PokemonNameDetailPage pokemonId={activeIndex} pokemon={pokemon} />
-      //   </div>
-      //   <div className="flex flex-col">
-      //     <div className="md:flex">
-      //       <div className="mb-4 md:flex md:flex-col md:w-[40vw] ">
-      //         <PokemonImageDetailPage pokemonId={activeIndex} />
-      //       </div>
-      //       <div className="md:w-[60vw] md:px-5 text-center">
-      //         <PokemonInfoDetailPage pokemonId={activeIndex}/>
-      //       </div>
-      //     </div>
-      //   </div>
-      //   <div className="relative block max-w-[80vw] max-h-[550px]  overflow-y-auto scrollbar-hide h-full">
-      //     <PokemonBMIDetailPage pokemon={pokemon} />
-      //     <PokemonAbilityDetailPage pokemon={pokemon} />
-      //     <PokemonStatusDetailPage pokemon={pokemon} />
-      //     <PokemonEvolutionDetailPage pokemonId={activeIndex!} />
-      //   </div>
-      // </div>
     );
   };
 
+
   const handleCloseModal = () => {
-    setActiveIndex(null);
+    setActiveIndex(null)
   };
 
   return (
-    <div
-      className={`fixed h-[550px] w-[80vw] overflow-visible z-10
-      animate-closePopUp ${activeIndex && "animate-showPopUp"} lg:hidden`}
-    >
-      <CloseIcon
-        className="absolute bg-[#ff5454fa] z-20 text-white rounded-full
+    
+      <div className={`sticky h-[550px] w-[80vw] overflow-visible z-10
+        transform transition-transform  ease-in-out bottom-0 lg:hidden
+        ${activeIndex ? "translate-y-[-350px] duration-700" : "translate-y-full duration-300"}`}
+      >
+        <CloseIcon
+          className="absolute bg-[#ff5454fa] z-20 text-white rounded-full
         m-1 p-[2px] top-[-27px] right-2 translate-y-40 cursor-pointer stroke-white stroke-[1px]
         hover:bg-[#bb1d1df9]"
-        onClick={() => handleCloseModal()}
-      />
-      <div
-        className="w-full h-full fixed top-[170px] bg-[#88C4FF0D] backdrop-blur-md backdrop-saturate-[150%]
+          onClick={() => handleCloseModal()}
+        />
+        <div
+          className="w-full h-full fixed top-[170px] bg-[#88C4FF0D] backdrop-blur-md backdrop-saturate-[150%]
         rounded-3xl z-10 shadow-box-detail"
-      >
-        <div className="flex flex-col">{pokemonDetailColumn()}</div>
+        >
+          <div className="flex flex-col">{pokemonDetailColumn()}</div>
+        </div>
       </div>
-    </div>
+    
   );
 };
 

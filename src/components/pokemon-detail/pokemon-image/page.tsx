@@ -17,18 +17,18 @@ const PokemonImageDetailPage = ({
         className="w-full h-[230px] rounded-2xl"
       />
 
-      <div className="sparkles !absolute rounded-2xl"/>
-
       {/* bubbles */}
       <AuraEffect />
 
-      <Image
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonId}.gif`}
-        alt=""
-        width={80}
-        height={80}
-        className="absolute w-[75px] h-[70px] right-0 left-[10px] mx-auto top-[70px] image-rendering-pixelated"
-      />
+      {pokemonId && (
+        <Image
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonId}.gif`}
+          alt=""
+          width={80}
+          height={80}
+          className="absolute w-[75px] h-[70px] right-0 left-[10px] mx-auto top-[70px] image-rendering-pixelated"
+        />
+      )}
     </div>
   );
 };

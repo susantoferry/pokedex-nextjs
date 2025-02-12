@@ -11,26 +11,30 @@ const PokemonPage = ({ pokemon }: { pokemon: PokemonModel }) => {
   const { activeIndex, setActiveIndex } = useActiveIndex();
 
   const handlePokemonClick = (pokemonId: number) => {
-    setActiveIndex(pokemonId)
-  }
+    setActiveIndex(pokemonId);
+  };
 
   return (
-    <div
-      className={`m-3 mt-[5px] p-4 pt-10 relative cursor-pointer 
-      transition-all duration-100 ease-in-out filter brightness-[0.85] 
-      border border-transparent rounded-3xl h-[190px] bg-center bg-no-repeat
-      bg-pokemon-frame bg-[length:100%_100%] backdrop-blur-[10px] backdrop-saturate-[150%]
-      
-      ${pokemonId === activeIndex ? "border-[rgb(118,192,221)] shadow-[0px_6px_16px_rgba(0,183,255,0.8)] scale-[0.98]" : "border-transparent shadow-[0_2px_10px_rgb(0,_183,_255,_0.74)]" } 
-      hover:border hover:border-[rgb(118,192,221)] hover:shadow-[0px_6px_16px_rgba(0,183,255,0.8)] hover:brightness-100`}
-      onClick={() => handlePokemonClick(pokemonId)}
-    >
-      <div className="flex justify-between items-center text-center px-5">
-        <PokemonImage id={pokemonId} pokemonName={pokemon.name} />
+    pokemon && (
+      <div
+        className={`w-full m-3 mt-[5px] p-4 pt-10 relative cursor-pointer transition-all 
+          duration-100 ease-in-out filter brightness-[0.85] rounded-3xl h-[190px] bg-center bg-no-repeat
+          bg-pokemon-frame bg-[length:100%_100%] backdrop-blur-[10px] backdrop-saturate-[150%]
+          ${
+            pokemonId === activeIndex
+              ? "border-2 border-[rgb(118,192,221)] shadow-[0px_6px_16px_rgba(0,183,255,0.8)] scale-[0.98] brightness-110"
+              : "border-transparent shadow-[0_2px_10px_rgb(0,_183,_255,_0.74)]"
+          } 
+          hover:border-2 hover:border-[rgb(118,192,221)] hover:shadow-[0px_6px_16px_rgba(0,183,255,0.8)] hover:brightness-100`}
+        onClick={() => handlePokemonClick(pokemonId)}
+      >
+        <div className="flex justify-between items-center text-center px-5">
+          <PokemonImage id={pokemonId} pokemonName={pokemon.name} />
 
-        <PokemonInfo id={pokemonId} pokemon={pokemon} />
+          <PokemonInfo id={pokemonId} pokemon={pokemon} />
+        </div>
       </div>
-    </div>
+    )
   );
 };
 
@@ -65,8 +69,6 @@ const PokemonInfo = ({
   id: number;
   pokemon: PokemonModel;
 }) => {
-
-
   return (
     <div>
       {id ? (
@@ -85,7 +87,8 @@ const PokemonInfo = ({
 
       {pokemon ? (
         <div className="flex gap-3 items-center justify-center">
-          {pokemon.types && pokemon.types.length > 0 &&
+          {pokemon.types &&
+            pokemon.types.length > 0 &&
             pokemon.types.map((type) => {
               const { bgColor, iconType } = colorTypes(type);
               return (

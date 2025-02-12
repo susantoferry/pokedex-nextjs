@@ -15,7 +15,6 @@ import PokemonEvolutionDetailPage from "@/components/pokemon-detail/pokemon-evol
 
 const PokemonDetailPage = ({}) => {
   const { activeIndex } = useActiveIndex();
-  const [loading, setLoading] = useState<boolean>(true);
   const [pokemonDetail, setPokemonDetail] = useState<PokemonDetailModel | null>(
     null
   );
@@ -32,7 +31,7 @@ const PokemonDetailPage = ({}) => {
       } catch (error) {
         console.error("Error fetching pokemon detail:", error);
       } finally {
-        setLoading(false);
+        console.info("success")
       }
     };
 
@@ -41,9 +40,6 @@ const PokemonDetailPage = ({}) => {
     }
   }, [activeIndex]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <React.Fragment>
@@ -64,7 +60,7 @@ const PokemonDetailPage = ({}) => {
             <div className="w-full relative overflow-auto z-[-1]">
               <div
                 className="flex h-full items-center flex-col pt-3 overflow-y-scroll"
-                style={{ msOverflowStyle: "none", scrollbarWidth: "none" }}
+                
               >
                 {/* Generate Pokemon Name Type */}
                 <PokemonNameDetailPage

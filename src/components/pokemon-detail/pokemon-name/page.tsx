@@ -53,7 +53,6 @@ const PokemonNameDetailPage = ({
       <div className="mb-[10px]">
         {species && (
           <div className="flex text-[#94DDFF] justify-center gap-3 font-bold text-sm">
-            {/* {species.names.slice(0, 2).map((otherName, index) => ( */}
             {species?.names.slice(0, 2).map((otherName: {name: string}, index: number) => (
               <React.Fragment key={index}>
                 <div>
@@ -70,7 +69,6 @@ const PokemonNameDetailPage = ({
       <div className="flex gap-5 relative mb-4 justify-center">
         {pokemon?.types.map((type, index) => {
           const { bgColor, iconType } = colorTypes(type.type.name);
-          console.log(bgColor)
           return (
             <div
               key={index}

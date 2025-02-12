@@ -23,10 +23,10 @@ const AuraEffect = () => {
       }, (newAura.duration + newAura.delay) * 1000);
     };
 
-    // Interval to create auras every 700ms
+    // Interval to create auras every 500ms
     const interval = setInterval(createAura, 500);
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (

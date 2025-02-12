@@ -1,51 +1,21 @@
 "use client";
 
 import { PokemonModel, PokemonTypeEntry } from "@/models/pokemon";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { getPokemonIdFromUrl } from "@/utils/function";
 import PokemonDetailPage from "../pokemon-detail/page";
 import { usePokemon } from "@/contexts/pokemon";
 import PokemonPage from "@/components/pokemon/page";
+import { useActiveIndex } from "@/contexts/active-index";
 
 const PokemonListPage = () => {
   // const [pokemons, setPokemons] = useState<PokemonModel[]>([]);
   const { pokemons, setPokemons } = usePokemon();
   const [loading, setLoading] = useState<boolean>(true);
+  const { activeIndex } = useActiveIndex();
 
-  useEffect(() => {
-    const fetchPokemons = async () => {
-      try {
-        // Fetch the list of Pokémon
-        const response = await fetch(
-          "https://pokeapi.co/api/v2/pokemon?limit=50"
-        );
-        const data = await response.json();
-
-        // Fetch Pokémon types for each Pokémon
-        const pokemonData: PokemonModel[] = data.results.map(
-          (pokemon: { name: string; url: string }) => ({
-            ...pokemon,
-            types: [], // Initialize with an empty array of types
-          })
-        );
-
-        // Fetch types for all Pokémon
-        await fetchPokemonTypes(pokemonData);
-
-        // Update the state with the fetched Pokémon and their types
-        setPokemons(pokemonData);
-      } catch (error) {
-        console.error("Error fetching Pokémon data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPokemons();
-  }, []);
-
-  const fetchPokemonTypes = async (pokemonList: PokemonModel[]) => {
+  const fetchPokemonTypes = useCallback(async (pokemonList: PokemonModel[]) => {
     const updatedPokemons = [...pokemonList];
 
     // Fetch each Pokémon's types from the types endpoint
@@ -78,13 +48,50 @@ const PokemonListPage = () => {
 
     await Promise.all(typePromises);
     setPokemons(updatedPokemons);
-  };
+  }, [setPokemons]);
+
+  useEffect(() => {
+    const fetchPokemons = async () => {
+      try {
+        // Fetch the list of Pokémon
+        const response = await fetch(
+          "https://pokeapi.co/api/v2/pokemon?limit=50"
+        );
+        const data = await response.json();
+
+        // Fetch Pokémon types for each Pokémon
+        const pokemonData: PokemonModel[] = data.results.map(
+          (pokemon: { name: string; url: string }) => ({
+            ...pokemon,
+            types: [],
+          })
+        );
+
+        // Fetch types for all Pokémon
+        await fetchPokemonTypes(pokemonData);
+
+        setPokemons(pokemonData);
+      } catch (error) {
+        console.error("Error fetching Pokémon data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPokemons();
+  }, [fetchPokemonTypes, setPokemons]);
 
   if (loading) return <div>Loading...</div>;
 
   return (
     <div className="relative">
-      <div className="grid w-full grid-cols-[78%_21%] auto-rows-auto px-[10vw] transition-all duration-500 ease-in-out">
+      <div
+        className={`grid w-full ${
+          activeIndex
+            ? "lg:grid-cols-[minmax(300px,3fr)_minmax(300px,1fr)]"
+            : "grid-cols-1"
+          } auto-rows-auto px-[10vw] transition-all duration-500 ease-in-out`}
+      >
         <PokemonListExtension pokemons={pokemons} />
 
         <PokemonDetailPage />
@@ -95,18 +102,16 @@ const PokemonListPage = () => {
 
 const PokemonListExtension = ({ pokemons }: { pokemons: PokemonModel[] }) => {
   return (
-    <div className="overflow-y-auto flex-1">
-      <div
-        className="w-full relative flex-col mb-5 flex-none basis-[75%] gap-3 pr-3 z-10
-                  lg:grid lg:grid-cols-auto-fit-minmax 
-                  md:flex md:justify-center md:items-center md:p-0"
-      >
-        {pokemons.map((pokemon, index) => (
-          <div key={index}>
-            <PokemonPage pokemon={pokemon} />
-          </div>
-        ))}
-      </div>
+    <div
+      className="w-full relative flex-col mb-5 flex-none basis-[75%] gap-3 pr-3 z-10
+             grid auto-rows-auto grid-cols-auto-fit-minmax min-[250px] max-[1fr] 
+             !px-[15px] md:justify-center md:items-center md:p-0"
+    >
+      {pokemons.map((pokemon, index) => (
+        <React.Fragment key={index}>
+          <PokemonPage pokemon={pokemon} />
+        </React.Fragment>
+      ))}
     </div>
   );
 };

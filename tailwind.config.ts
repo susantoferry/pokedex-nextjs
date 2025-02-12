@@ -23,7 +23,7 @@ export default {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "pokemon-frame": "url('/images/file.png')",
+        "pokemon-frame": "url('/images/file.webp')",
         "custom-gradient": "linear-gradient(90deg, #02b7ff, #fcfff3, #0281ff)",
       },
       boxShadow: {
@@ -88,6 +88,14 @@ export default {
           "70%": { transform: "translateY(-180px)" },
           "90%": { transform: "translateY(-160px)" },
           "100%": { transform: "translateY(-175px)" },
+        },
+        lightEffect: {
+          "0%": {
+            boxShadow: `0 0 10px #fff, 0 0 20px #fff, 0 0 30px #03e9f4,
+              0 0 40px #03e9f4, 0 0 50px #03e9f4` },
+          "100%": {
+            boxShadow: `0 0 5px #fff, 0 0 10px #fff, 0 0 15px #03e9f4,
+              0 0 25px #03e9f4, 0 0 35px #03e9f4` },
         }
       },
       animation: {
@@ -97,6 +105,7 @@ export default {
         aura: 'aura 1s ease-in-out forwards',
         closePopUp: 'closePopUp 1s ease-in-out forwards',
         showPopUp: 'showPopUp 1s ease-in-out forwards',
+        lightEffect: 'lightEffect 1s ease-in-out infinite alternate'
       },
     },
   },

@@ -31,14 +31,6 @@ interface Type {
   };
 }
 
-// interface AbilityName {
-//   name: string;
-// }
-
-// interface Ability {
-//   ability: AbilityName;
-// }
-
 interface StatName {
   name: string;
 }
@@ -70,16 +62,3 @@ export interface Status {
   base_stat: number;
   type_stat: string;
 }
-
-// interface EvolutionChain {
-//   species: {
-//     name: string;
-//     url: string;
-//   }
-//   evolution_details: EvolutionDetail[]
-//   evolves_to: EvolutionChain[]
-// }
-
-// export interface EvolutionData {
-//   chain: EvolutionChain;
-// }
