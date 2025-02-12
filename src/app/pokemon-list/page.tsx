@@ -10,7 +10,6 @@ import PokemonPage from "@/components/pokemon/page";
 import { useActiveIndex } from "@/contexts/active-index";
 
 const PokemonListPage = () => {
-  // const [pokemons, setPokemons] = useState<PokemonModel[]>([]);
   const { pokemons, setPokemons } = usePokemon();
   const [loading, setLoading] = useState<boolean>(true);
   const { activeIndex } = useActiveIndex();
