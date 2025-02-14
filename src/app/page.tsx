@@ -1,6 +1,7 @@
 import NavbarPage from "@/components/navbar/page";
 import PokemonListPage from "./pokemon-list/page";
 
+
 export default function Home() {
   return (
     <div>

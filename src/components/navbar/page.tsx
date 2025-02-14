@@ -21,7 +21,6 @@ const NavbarPage = () => {
 
   const showSearchMenu = () => {
     setShowSearch(!showSearch);
-    console.log(showSearch);
   };
 
   useEffect(() => {

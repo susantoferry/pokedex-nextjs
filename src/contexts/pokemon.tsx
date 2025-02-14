@@ -26,7 +26,6 @@ export const PokemonProvider: React.FC<{ children: ReactNode }> = ({ children })
   const [originalPokemons, setOriginalPokemons] = useState<PokemonModel[]>([]);
 
   useEffect(() => {
-    
     if (!originalPokemons || originalPokemons.length === 0) {
       setOriginalPokemons(pokemons)
     }

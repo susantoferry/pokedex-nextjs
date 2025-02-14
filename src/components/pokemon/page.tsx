@@ -25,7 +25,7 @@ const PokemonPage = ({ pokemon }: { pokemon: PokemonModel }) => {
               ? "border-2 border-[rgb(118,192,221)] shadow-[0px_6px_16px_rgba(0,183,255,0.8)] scale-[0.98] brightness-110"
               : "border-transparent shadow-[0_2px_10px_rgb(0,_183,_255,_0.74)]"
           } 
-          hover:border-2 hover:border-[rgb(118,192,221)] hover:shadow-[0px_6px_16px_rgba(0,183,255,0.8)] hover:brightness-100`}
+          hover:border-2 hover:border-[rgb(45,196,255)] hover:shadow-[0px_6px_16px_rgba(0,183,255,0.8)] hover:brightness-100`}
         onClick={() => handlePokemonClick(pokemonId)}
       >
         <div className="flex justify-between items-center text-center px-5">
