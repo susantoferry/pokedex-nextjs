@@ -1,5 +1,4 @@
 import PokemonListComponent from "@/components/pokemon-list/page";
-import { usePokemon } from "@/contexts/pokemon";
 import { PokemonModel, PokemonTypeEntry } from "@/models/pokemon";
 import { getPokemonIdFromUrl } from "@/utils/function";
 
